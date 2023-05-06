@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    uses: SloopyNoSleep/DredgeWinchMods/.github/workflows/.NETFWCI.yml@main
+  release-project:
+    name: "Release project"
+
+    runs-on: [ubuntu-latest]
+    needs: build
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: DredgeWinchMods
+
+      - name: Archive content
+        uses: thedoctor0/zip-release@master
+        with:
+          filename: SloopyWinchMods.zip
+
+      - name: Create Github release
+        id: create-new-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.run_number }}
+          release_name: ${{ github.run_number }}
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-new-release.outputs.upload_url }}
+          asset_path: ./SloopyWinchMods.zip
+          asset_name: SloopyWinchMods-v{{ github.run_number }}.zip
+          asset_content_type: application/zip
