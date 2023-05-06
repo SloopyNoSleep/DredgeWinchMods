@@ -33,4 +33,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: DredgeWinchMods
-        path: ./bin/
+        path: |
+          ./bin/
+          !/bin/*/Winch.dll
+          !/bin/*/pdb.dll
