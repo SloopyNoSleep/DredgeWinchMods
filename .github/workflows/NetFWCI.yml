@@ -24,4 +24,4 @@ jobs:
       run: nuget restore DredgeWinchMods.sln
       
     - name: Build the Solution
-      run: msbuild restore DredgeWinchMods.sln
+      run: msbuild DredgeWinchMods.sln
