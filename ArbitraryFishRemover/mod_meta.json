@@ -1,5 +1,5 @@
 ﻿{
-  "Version": "1.1",
+  "Version": "1.1.0",
   "ModAssembly": "ArbitraryFishRemover.dll",
   "MinWinchVersion": "alpha-1.4",
   "DefaultConfig": {

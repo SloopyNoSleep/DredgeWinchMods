@@ -7,6 +7,8 @@
         <LangVersion>default</LangVersion>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+        <AssemblyVersion>1.1.0</AssemblyVersion>
+        <OutDir>$(SolutionDir)bin\$(MSBuildProjectName)</OutDir>
     </PropertyGroup>
 
     <ItemGroup>
