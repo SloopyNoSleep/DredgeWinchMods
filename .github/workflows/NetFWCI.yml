@@ -35,5 +35,5 @@ jobs:
         name: DredgeWinchMods
         path: |
           ./bin/
-          !/bin/*/Winch.dll
-          !/bin/*/pdb.dll
+          !./bin/*/Winch.dll
+          !./bin/*/pdb.dll
