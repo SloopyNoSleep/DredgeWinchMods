@@ -36,4 +36,4 @@ jobs:
         path: |
           ./bin/
           !./bin/*/Winch.dll
-          !./bin/*/pdb.dll
+          !./bin/*/*.pdb
