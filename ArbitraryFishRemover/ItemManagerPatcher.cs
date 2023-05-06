@@ -1,6 +1,4 @@
 ﻿using HarmonyLib;
-using UnityEngine;
-using Winch.Config;
 using Winch.Core;
 
 namespace ArbitraryFishRemover;
@@ -12,11 +10,7 @@ public class ItemManagerPatcher
 public static void Postfix(ItemManager __instance)
     {
         WinchCore.Log.Info($"ItemManager patch postfix called");
-
-        foreach (var fish in FishToRemove.Fish)
-        {
-            WinchCore.Log.Info($"Fish to remove: {fish}");
-        }
+        WinchCore.Log.Debug($"There are {FishToRemove.Fish.Count} fish to remove");
 
         if (!FishToRemove.IsEnabled) return;
         try

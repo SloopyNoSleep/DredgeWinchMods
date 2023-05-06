@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using Winch.Config;
 using Winch.Core;
 
 namespace ArbitraryFishRemover;
@@ -10,7 +9,7 @@ public class HarvestZoneDetectorPatcher
 {
     public static void Postfix(HarvestZoneDetector __instance, ref List<string> __result)
     {
-        WinchCore.Log.Debug($"HarvestZoneDetector patch postfix called");
+        WinchCore.Log.Info($"HarvestZoneDetector patch postfix called");
         if (!FishToRemove.IsEnabled) return;
         WinchCore.Log.Debug($"Removing banned fish from harvest zone detector");
         __result.RemoveAll(s => FishToRemove.Fish!.Any(s.Contains));
