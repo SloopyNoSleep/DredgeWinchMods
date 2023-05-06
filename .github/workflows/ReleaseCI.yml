@@ -8,8 +8,6 @@ on:
 jobs:
   build:
     uses: ./.github/workflows/NetFWCI.yml
-    with:
-      secrets: inherit
       
   release-project:
     name: "Release project"
