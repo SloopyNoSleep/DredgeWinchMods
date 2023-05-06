@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    uses: SloopyNoSleep/DredgeWinchMods/.github/workflows/.NETFWCI.yml@main
+    uses: SloopyNoSleep/DredgeWinchMods/.github/workflows/NETFWCI.yml@main
   release-project:
     name: "Release project"
 
