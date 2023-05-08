@@ -1,6 +1,7 @@
 ﻿{
   "Version": "1.0.1",
   "ModAssembly": "ArbitraryFishRemover.dll",
+  "Entrypoint": "ArbitraryFishRemover.Loader/Initialize",
   "MinWinchVersion": "alpha-1.4",
   "DefaultConfig": {
     "FishToDelete": ["sunfish", "sunfish-ab-1", "moonfish", "moonfish-ab-1"]
