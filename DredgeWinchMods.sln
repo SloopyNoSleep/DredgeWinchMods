@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArbitraryFishRemover", "Arb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winch", "Winch\Winch\Winch.csproj", "{F09B95D9-9227-49DC-90BE-13BEB579AEBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Randomizer", "Randomizer\Randomizer.csproj", "{97C1AD2C-4777-4728-A265-5EAD36908D2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{F09B95D9-9227-49DC-90BE-13BEB579AEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F09B95D9-9227-49DC-90BE-13BEB579AEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F09B95D9-9227-49DC-90BE-13BEB579AEBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C1AD2C-4777-4728-A265-5EAD36908D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C1AD2C-4777-4728-A265-5EAD36908D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C1AD2C-4777-4728-A265-5EAD36908D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C1AD2C-4777-4728-A265-5EAD36908D2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
