@@ -18,9 +18,7 @@ public class Loader
     {
         WinchCore.Log.Info($"ItemManager patch postfix called");
         WinchCore.Log.Debug($"There are {FishToRemove.Fish.Count} fish to remove");
-        int dbgline = 0;
         if (!FishToRemove.IsEnabled) return;
-        string fishDataList = "{";
         try
         {
             var allItems = (sender as ItemManager)?.allItems;
