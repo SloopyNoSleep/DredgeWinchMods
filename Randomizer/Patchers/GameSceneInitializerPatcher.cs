@@ -9,6 +9,7 @@ namespace Randomizer.Patchers;
 [HarmonyPatch("Start")]
 public class GameSceneInitializerPatcher
 {
+    // TODO: Add an event to DredgeEvents to replace the need for this patch. GameSceneInitializer.Start is a good canditate for a new event
     public static void Prefix(GameSceneInitializer __instance)
     {
         try

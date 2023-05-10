@@ -6,6 +6,7 @@ namespace Randomizer.Helpers;
 
 public class PoiHelpers
 {
+    // TODO: I'd like a better method than having to destroy and recreate SimpleBuoyantObject and Cullable components but this proved troublesome during testing
     public static void MovePoi(GameObject poi, Vector3 position, CullingBrain cullingBrain)
     {
         if (cullingBrain == null) throw new ArgumentNullException(nameof(cullingBrain));
