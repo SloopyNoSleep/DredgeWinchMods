@@ -29,3 +29,27 @@ You can find a list of fish-ids here: [Winch#ID Tables](https://github.com/Hackt
 #### Potential Problems
 * Removing a fish that is currently in your cargo/net/storage can cause the game to not load/crash
 * You can prevent yourself from being able to complete quests by removing required fish which can lead to soft-locks
+
+&nbsp;
+
+### ❓ Randomizer
+#### Description
+Allows different elements of the game to be randomized depending on configuration options and seed
+
+#### Configuration
+* RandomizeHarvestPoIs
+   * Randomly permutes HarvestPOIs across existing locations.
+* RandomizePoiCoordinates
+   * Randomizes coordinates for HarvestPOIs. 
+* RandomizeSizes
+   * Randomize Fish sizes.
+* RandomizeQuestsRequirements
+   * Randomize fish required for quests.
+* RandomizeHarvestMinigamesTypes
+   * Randomize minigame associated to fish.
+* RandomizeHarvestableType
+   * Randomize HarvestableType (Volcanic, Mangrove, Oceanic) etc for each fish.
+* RandomizeDifficulty
+   * Randomize difficulty for all fish. 
+* Seed
+   * Can be used to create repeatable experiences 
