@@ -5,10 +5,7 @@ public static class SeededRng
     public static int Seed = Guid.NewGuid().GetHashCode();
 
     private static Random? _rng;
-    public static Random? Rng
-    {
-        get => _rng ??= new(Seed);
-    }
+    public static Random? Rng => _rng ??= new(Seed);
 
     public static List<T> FisherYatesShuffle<T>(List<T> originalList)
     {
