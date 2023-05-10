@@ -1,4 +1,4 @@
-﻿namespace Randomizer;
+﻿namespace Randomizer.Randomizers;
 
 public class PoiRandomizer
 {

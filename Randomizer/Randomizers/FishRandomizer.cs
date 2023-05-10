@@ -1,6 +1,6 @@
-﻿using HarmonyLib;
+﻿using Winch.Core;
 
-namespace Randomizer;
+namespace Randomizer.Randomizers;
 
 public class FishRandomizer
 {
@@ -11,20 +11,32 @@ public class FishRandomizer
     // TODO: Remove possibleSizes here. Either separate out single fish randomization of process all fish at once
     public static void RandomizeFish(RandomizerConfig config, FishItemData fish, List<(float, float)>? possibleSizes = null)
     {
-        if (RandomizerConfig.Instance.RandomizeSizes)
+        if (config.RandomizeSizes)
         {
-            Traverse.Create(fish).Field("minSizeCentimeters").SetValue(possibleSizes[SeededRng.Rng.Next(0,possibleSizes.Count)].Item1);
-            Traverse.Create(fish).Field("maxSizeCentimeters").SetValue(possibleSizes[SeededRng.Rng.Next(0,possibleSizes.Count)].Item2);
+            fish.minSizeCentimeters = possibleSizes[SeededRng.Rng.Next(0,possibleSizes.Count)].Item1;
+            fish.maxSizeCentimeters = possibleSizes[SeededRng.Rng.Next(0,possibleSizes.Count)].Item2;
         }
 
-        if (RandomizerConfig.Instance.RandomizeHarvestMinigamesTypes)
-            Traverse.Create(fish).Field("harvestMinigameType")
-                .SetValue((HarvestMinigameType)SeededRng.Rng?.Next(MiniGameEnums.Length));
-        if (RandomizerConfig.Instance.RandomizeDifficulty)
-            Traverse.Create(fish).Field("harvestDifficulty")
-                .SetValue((HarvestDifficulty)SeededRng.Rng?.Next(DifficultyEnums.Length));
-        if (RandomizerConfig.Instance.RandomizeHarvestableType)
-            Traverse.Create(fish).Field("harvestableType")
-                .SetValue((HarvestableType)SeededRng.Rng?.Next(HarvestableTypeEnums.Length));
+        if (config.RandomizeHarvestMinigamesTypes)
+            fish.harvestMinigameType = (HarvestMinigameType)SeededRng.Rng?.Next(MiniGameEnums.Length);
+        if (config.RandomizeDifficulty)
+            fish.harvestDifficulty =(HarvestDifficulty)SeededRng.Rng?.Next(DifficultyEnums.Length);
+        if (config.RandomizeHarvestableType)
+            fish.harvestableType = (HarvestableType)SeededRng.Rng?.Next(HarvestableTypeEnums.Length);
+    }
+
+    // TODO: Remove possibleSizes here. Either separate out single fish randomization of process all fish at once
+    public static void RandomizeAllFish(RandomizerConfig config, List<FishItemData> fishList)
+    {
+        WinchCore.Log.Debug($"There are {fishList.Count} fish to randomize");
+
+        List<(float, float)> possibleSizes = (fishList ?? throw new InvalidOperationException())
+            .Select(fish => (fish.minSizeCentimeters,
+                fish.maxSizeCentimeters)).ToList();
+
+        foreach (var fish in fishList)
+        {
+            RandomizeFish(config, fish, possibleSizes);
+        }
     }
 }
