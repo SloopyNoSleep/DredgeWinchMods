@@ -1,6 +1,5 @@
-﻿namespace Randomizer.Helpers;
+﻿using System.Security;
+using System.Security.Permissions;
 
-public class PublicAccess
-{
-    
-}
+[module: UnverifiableCode]
+[assembly: SecurityPermission( SecurityAction.RequestMinimum, SkipVerification = true )]

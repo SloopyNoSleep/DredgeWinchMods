@@ -11,7 +11,7 @@ public class EncyclopediaPatcher
     {
         if (!FishToRemove.IsEnabled) return;
         WinchCore.Log.Debug($"Encyclopedia patch prefix called");
-        var fishList = Traverse.Create(__instance).Field("allFish").GetValue() as List<FishItemData>;
+        var fishList = __instance.allFish;
         fishList?.RemoveAll(s => FishToRemove.Fish.Any(x => s.id.Contains(x)));
     }
 }

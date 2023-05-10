@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using UnityEngine;
 using Winch.Core;
+using Object = UnityEngine.Object;
 
 namespace ArbitraryFishRemover;
 
@@ -15,16 +16,16 @@ public class HarvestPOIPatcher
         try
         {
             var poi = __instance;
-            var poidata = Traverse.Create(poi).Field("harvestPOIData").GetValue() as HarvestPOIDataModel;
+            var poidata = poi.harvestPOIData;
             if (poidata != null)
             {
-                var items = Traverse.Create(poidata).Field("items").GetValue() as List<HarvestableItemData>;
-                var nightItems = Traverse.Create(poidata).Field("nightItems").GetValue() as List<HarvestableItemData>;
+                var items = poidata.items;
+                var nightItems = poidata.nightItems;
                 if (items!.Any(s => FishToRemove.Fish!.Any(x => s.id.Equals(x))) ||
                     nightItems!.Any(s => FishToRemove.Fish!.Any(x => s.id.Equals(x))))
                 {
                     WinchCore.Log.Debug($"Found banned item in {poi.name}");
-                    GameObject.Destroy(poi.gameObject);
+                    Object.Destroy(poi.gameObject);
                     WinchCore.Log.Debug($"Destroyed {poi.name}");
                 }
             }
