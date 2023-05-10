@@ -2,9 +2,9 @@
   "Version": "0.0.1",
   "ModAssembly": "Randomizer.dll",
   "MinWinchVersion": "alpha-1.4",
+  "Entrypoint": "Randomizer.Loader/Initialize",
   "DefaultConfig": {
     "Seed": null
   },
-  "ApplyPatches": true,
-  "Entrypoint": "Randomizer.Loader/Initialize"
+  "ApplyPatches": true
 }
